@@ -12,7 +12,7 @@
 ## Description      Defines 4 functions for storing and retrieving a cached matrix object
 ##                  The <<- operator stores the return value in a cache
 ##                  get()         Returns the cached matrix object
-##                  set()         Sets the caches matrix object
+##                  set()         Sets the cached matrix object
 ##                  getinv()
 ##                  setinv()
 ## 
@@ -49,22 +49,25 @@ makeCacheMatrix <- function(x = matrix()) {
 ##===============================================================================================
 ## Function Name    cacheSolve
 ##===============================================================================================
-## Description      Return a matrix object that is theinverse of X
+## Description      Return a matrix object that is the inverse of X
 ##                  Check if the inverse matrix is already cached and if so - return this
-##                  If the inverse matrix is not already cached - then cache it first
+##                  If the inverse matrix is not already cached - then cache it first and then return it
 ## 
 ## Arguments        X             A matrix object which is invertible
 ##
 ## Return Value     m             The inverse of X
 ##===============================================================================================
-## Unit test        x <- matrix(c(-1, -2, 1, 1), 2,2)
+## Unit test        source("cachematrix.R")
+##                  m <- matrix(c(-1, -2, 1, 1), nrow=2,ncol=2)
+##                  x<-makeCacheMatrix(m)
 ##                  inv <- cacheSolve(x)
+##                  m
 ##                  inv
 ##                 
 ##Expected Result
 ##                      [,1] [,2]
-##                [1,]   -1    1
-##                [2,]   -2    1
+##                [1,]   1    -1
+##                [2,]   2    -1
 ##===============================================================================================
 
 cacheSolve <- function(x, ...) {
