@@ -11,15 +11,15 @@
 ##===============================================================================================
 ## Description      Defines 4 functions for storing and retrieving a cached matrix object
 ##                  The <<- operator stores the return value in a cache
-##                  get()         Returns the cached matrix object
-##                  set()         Sets the cached matrix object
-##                  getinv()
-##                  setinv()
+##                  get()         Returns the cached matrix
+##                  set()         Sets the cached matrix 
+##                  getinv()      Returns the inverse cached matrix
+##                  setinv()      Sets the inverse cached matrix
 ## 
 ## Arguments        x             A matrix object which is invertible
 ##                                
 ##
-## Return Value     y             A list containing the following functions - get,set,getinv,setinv
+## Return Value                   A list containing the following functions - get(),set(),getinv(),setinv()
 ##==============================================================================================================
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -55,7 +55,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## 
 ## Arguments        X             A matrix object which is invertible
 ##
-## Return Value     m             The inverse of X
+## Return Value                   The inverse of X
 ##===============================================================================================
 ## Unit test        source("cachematrix.R")
 ##                  m <- matrix(c(-1, -2, 1, 1), nrow=2,ncol=2)
